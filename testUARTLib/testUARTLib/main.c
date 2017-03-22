@@ -13,10 +13,14 @@ int main(void){
 
     initSevenSeg(B5,B4,B3,B2,B1,B0,C0,ANODE);
     init_timer();
+    int i = 0;
     while (1) 
-    {
-        writeNum(10);
+    {        
+        writeNum(i);
         delay(1000);
+        i++;
+        if (i>15)
+            i = 0;
     }
 }
 
