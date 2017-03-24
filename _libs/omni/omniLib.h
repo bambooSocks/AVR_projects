@@ -1,6 +1,6 @@
 
-#ifndef UARTLIB_H_
-#define UARTLIB_H_
+#ifndef OMNILIB_H_
+#define OMNILIB_H_
 
 #include <avr/io.h>
 #include <avr/interrupt.h>

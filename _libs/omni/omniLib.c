@@ -1,4 +1,4 @@
-#include "uartLib.h"
+#include "omniLib.h"
 
 void initSevenSeg(int a, int b, int c, int d, int e, int f, int g, int type_){
     pinArray[0]= a;
