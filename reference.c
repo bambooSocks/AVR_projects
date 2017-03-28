@@ -61,6 +61,7 @@ void strTX (const char *str){
 }
 
 void numTX(uint16_t num){
+    char c[30] = "";
     int n = num, len = 0;
     while (n != 0){
         len++;
@@ -70,8 +71,10 @@ void numTX(uint16_t num){
     for (int i = 0; i < len; i++){
         rem = num % 10;
         num = num / 10;
-        charTX(rem+'0');
+        c[len - (i + 1)] = rem + '0';
     }
+    c[len] = '\0';
+    strTx(c);
 }
 
 ///////////////////////////////////////DELAY//////////////////////////////////////////////
