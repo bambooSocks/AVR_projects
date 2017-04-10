@@ -34,7 +34,7 @@ int main(void)
                     number--;
                     numTX(number);
                     charTX('\r');
-                    charTX('\n');
+                    charTX('\n');S
                 }
             }
         }
@@ -44,7 +44,7 @@ int main(void)
 
 uint8_t readEncoder(void){
     uint8_t res = 0;
-    if(PINC & (1 << PINC0)){
+    if(PINC & (1 << PINC0)){   // res |= PINC & (1 << PINC0) ? (1 << 1) : (0 << 1);
         res |= (1 << 1);
     }
     if(PINC & (1 << PINC1)){

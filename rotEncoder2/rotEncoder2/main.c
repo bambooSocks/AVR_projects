@@ -11,34 +11,26 @@
 
 int main(void)
 {
-    DDRD &= ~(1 << DDD2) & ~(1 << DDD3);
-    PORTD |= (1 << PORTD2) | (1 << PORTD3); 
-    EICRA |= (1 << ISC11) /*| (1 << ISC10)*/ | (1 << ISC01);
-    EIMSK |= (1 << INT1) | (1 << INT0);
-    sei();
+    DDRB |= (1 << DDB5);
+    DDRC &= ~(1 << DDC0) & ~(1 << DDC1);
+    PCICR |= (1 << PCIE1);
+    PCMSK1 |= (1 << PCINT8);
     initUART(9600,1);
+    sei();
     while (1) 
     {
         
     }
 }
 
-ISR(INT0_vect )
+ISR(PCINT1_vect)
 {
-    if((PIND & PIND3) != 0)
-    {
-        charTX('+');
-    }else{
-        charTX('-');
+    if((PINC & (1 << PINC0)) == 0){
+        if (PINC & (1 << PINC1)){ //CW    
+            charTX('-');
+        } else { //CCW
+            charTX('+');
+        }
     }
 }
 
-ISR(INT1_vect)
-{
-    if((PIND & PIND2) != 0)
-    {
-        charTX('+');
-    }else{
-        charTX('-');
-    }
-}
